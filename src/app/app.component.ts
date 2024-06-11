@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'machineTest3';
+
+  @ViewChild("signUpForm") signUpForm !: NgForm
+
+  onSignUp(signUpForm : NgForm){
+    if(signUpForm.valid){
+      console.log(signUpForm)
+    console.log(signUpForm.value)
+    signUpForm.resetForm()
+    }
+  }
 }
